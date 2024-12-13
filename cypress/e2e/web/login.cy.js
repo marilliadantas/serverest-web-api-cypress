@@ -5,7 +5,6 @@ import { gerarEmail } from "../../support/utils";
 
 const login = new LoginPage();
 const home = new HomePage();
-const register = new RegisterPage();
 
 describe('Login', () => {
   let email;
@@ -13,9 +12,6 @@ describe('Login', () => {
   before(() => {
     email = gerarEmail();
     cy.registerUser(email)
-    // cy.visit('https://front.serverest.dev/cadastrarusuarios');
-    // register.fillInRegister('Alfredo', email, Cypress.env('PASSWORD'));
-    // register.verifyMessage('Cadastro realizado com sucesso');
   })
 
   beforeEach(() => {
