@@ -1,18 +1,20 @@
-import RegisterPage from "../support/pages/registerPage";
-import LoginPage from "../support/pages/loginPage";
+import RegisterPage from "./pages/registerPage";
+import LoginPage from "./pages/loginPage";
+import CommomPage from "./pages/commonPage";
 
 const register = new RegisterPage();
 const login = new LoginPage();
+const commom = new CommomPage();
 
 Cypress.Commands.add("registerUser", (email) => {
-  cy.visit('https://front.serverest.dev/cadastrarusuarios');
-  register.fillInRegister('Alfredo', email, Cypress.env('PASSWORD'));
-  register.verifyMessage('Cadastro realizado com sucesso');
+  commom.accessPage('cadastrarusuarios')
+  register.fillInRegister('Alfredo', email, Cypress.env('PASSWORD'))
+  register.verifyMessage('Cadastro realizado com sucesso')
 })
 
 Cypress.Commands.add("loginUser", (email, senha) => {
-  cy.visit(`${Cypress.env('BASE_URL')}/login`);
-  login.fillInLogin(email, senha);
+  commom.accessPage('login')
+  login.fillInLogin(email, senha)
 })
 
 Cypress.Commands.add("login", (email, password) => {
