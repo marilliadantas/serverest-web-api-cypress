@@ -1,9 +1,9 @@
 import { gerarEmail } from "../../support/utils";
 
+const email = gerarEmail();
+
 describe("Atualizar registro", () => {
   it("Atualizar registro válido", () => {
-    const email = gerarEmail();
-    
     cy.cadastrarUsuario(email).then((userId) => {
         cy.atualizarUsuariosPorID(userId, email).then((response) => {
           expect(response.status).to.equal(200)
