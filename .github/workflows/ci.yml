@@ -9,7 +9,7 @@ on:
 
 jobs: 
   cypress-electron-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps: 
       - name: Get code
         uses: actions/checkout@v3.3.0
@@ -27,16 +27,15 @@ jobs:
           CYPRESS_USERS: ${{ secrets.USERS }}
         run: ${{ github.event.inputs.cli }}
 
-      - name: Uploading files in case of failure
-        uses: actions/upload-artifact@v4
-
+      - name: Upload Cypress screenshots (on failure)
         if: failure()
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore 
 
-      - name: Upload files if successful
+      - name: Upload Cypress videos (on success or failure)
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
