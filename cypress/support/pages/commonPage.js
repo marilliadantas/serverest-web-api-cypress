@@ -1,6 +1,6 @@
 class CommomPage {
     accessPage(route) {
-        cy.visit(`${Cypress.env('BASE_URL')}/${route}`)
+        cy.visit(`${Cypress.env('FRONT_URL')}/${route}`)
     }
 }
 
