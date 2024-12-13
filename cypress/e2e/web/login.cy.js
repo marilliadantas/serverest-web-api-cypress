@@ -2,12 +2,10 @@ import LoginPage from "../../support/pages/loginPage";
 import RegisterPage from "../../support/pages/registerPage";
 import HomePage from "../../support/pages/homePage";
 import { gerarEmail } from "../../support/utils";
-import CommomPage from "../../support/pages/commonPage";
 
 const login = new LoginPage();
 const home = new HomePage();
 const register = new RegisterPage();
-const commom = new CommomPage();
 
 describe('Login', () => {
   let email;
@@ -21,7 +19,7 @@ describe('Login', () => {
   })
 
   beforeEach(() => {
-    commom.accessPage('login')
+    cy.visit('https://front.serverest.dev/login');
   })
 
   it('Credenciais válidas', () => {
