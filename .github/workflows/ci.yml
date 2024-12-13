@@ -26,3 +26,19 @@ jobs:
           CYPRESS_LOGIN: ${{ secrets.LOGIN }}
           CYPRESS_USERS: ${{ secrets.USERS }}
         run: ${{ github.event.inputs.cli }}
+
+      - name: Uploading files in case of failure
+        uses: actions/upload-artifact@v4
+
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore 
+
+      - name: Upload files if successful
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
