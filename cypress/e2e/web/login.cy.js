@@ -1,5 +1,4 @@
 import LoginPage from "../../support/pages/loginPage";
-import RegisterPage from "../../support/pages/registerPage";
 import HomePage from "../../support/pages/homePage";
 import { gerarEmail } from "../../support/utils";
 

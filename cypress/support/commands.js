@@ -7,7 +7,7 @@ const login = new LoginPage();
 const commom = new CommomPage();
 
 Cypress.Commands.add("registerUser", (email) => {
-  cy.visit('https://front.serverest.dev/cadastrarusuarios');
+  cy.visit(`${Cypress.env('FRONT_URL')}/cadastrarusuarios`);
   register.fillInRegister('Alfredo', email, Cypress.env('PASSWORD'));
   register.verifyMessage('Cadastro realizado com sucesso');
 })
