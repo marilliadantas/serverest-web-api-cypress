@@ -21,7 +21,7 @@ describe('Login', () => {
   })
 
   beforeEach(() => {
-    commom.accessPage('login')
+    cy.visit('https://front.serverest.dev/login');
   })
 
   it('Credenciais válidas', () => {
