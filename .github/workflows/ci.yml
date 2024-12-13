@@ -19,7 +19,7 @@ jobs:
     
       - name: Run E2E tests
         env:
-          CYPRESS_BASE_URL: ${{ secrets.BASE_URL }}
+          CYPRESS_FRONT_URL: ${{ secrets.FRONT_URL }}
           CYPRESS_SERVER: ${{ secrets.SERVER }}
           CYPRESS_PASSWORD: ${{ secrets.PASSWORD }}
           CYPRESS_EMAIL: ${{ secrets.EMAIL }}
