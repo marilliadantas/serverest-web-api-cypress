@@ -1,10 +1,12 @@
 import LoginPage from "../../support/pages/loginPage";
+import RegisterPage from "../../support/pages/registerPage";
 import HomePage from "../../support/pages/homePage";
-import CommomPage from "../../support/pages/commonPage";
 import { gerarEmail } from "../../support/utils";
+import CommomPage from "../../support/pages/commonPage";
 
 const login = new LoginPage();
 const home = new HomePage();
+const register = new RegisterPage();
 const commom = new CommomPage();
 
 describe('Login', () => {
@@ -13,6 +15,9 @@ describe('Login', () => {
   before(() => {
     email = gerarEmail();
     cy.registerUser(email)
+    // cy.visit('https://front.serverest.dev/cadastrarusuarios');
+    // register.fillInRegister('Alfredo', email, Cypress.env('PASSWORD'));
+    // register.verifyMessage('Cadastro realizado com sucesso');
   })
 
   beforeEach(() => {
